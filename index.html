@@ -1,1 +1,89 @@
-hello
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculate GFM Taxes</title>
+
+  <style>
+    
+  </style>
+
+  
+</head>
+<body>
+  <html>
+<body>
+
+    <h2>Net Monthly Salary Calculator</h2>
+    <label for="monthlySalary">Enter Monthly Salary:</label>
+    <input type="number" id="monthlySalary">
+    <button onclick="calculateNetMonthlySalary(parseFloat(document.getElementById('monthlySalary').value))">Calculate</button>
+
+    <h3>Results</h3>
+    <p id="grossSalary">0</p>
+    <p id="netSalary">0</p>
+    <p id="monthlyTax">0</p>
+
+</body>
+</html>
+
+
+  <script>
+function calculateNetMonthlySalary(monthlySalary) {
+  const annualIncome = monthlySalary * 12;
+  const exemptAmount = annualIncome * 0.09;
+  const taxableIncome = annualIncome - exemptAmount;
+
+  let annualTax = 0;
+
+  //24-25
+  // if (taxableIncome <= 600000) {
+  //   annualTax = 0;
+  // } else if (taxableIncome <= 1200000) {
+  //   annualTax = (taxableIncome - 600000) * 0.05;
+  // } else if (taxableIncome <= 2200000) {
+  //   annualTax = 30000 + (taxableIncome - 1200000) * 0.15;
+  // } else if (taxableIncome <= 3200000) {
+  //   annualTax = 180000 + (taxableIncome - 2200000) * 0.25;
+  // } else if (taxableIncome <= 4100000) {
+  //   annualTax = 430000 + (taxableIncome - 3200000) * 0.30;
+  // } else {
+  //   annualTax = 700000 + (taxableIncome - 4100000) * 0.35;
+  // }
+
+  //25-26
+  if (taxableIncome <= 600000) {
+    annualTax = 0;
+  } else if (taxableIncome <= 1200000) {
+    annualTax = (taxableIncome - 600000) * 0.025;
+  } else if (taxableIncome <= 2200000) {
+    annualTax = 60000 + (taxableIncome - 1200000) * 0.11;
+  } else if (taxableIncome <= 3200000) {
+    annualTax = 116000 + (taxableIncome - 2200000) * 0.23;
+  } else if (taxableIncome <= 4100000) {
+    annualTax = 346000 + (taxableIncome - 3200000) * 0.30;
+  } else {
+    annualTax = 616000 + (taxableIncome - 4100000) * 0.35;
+  }
+
+  const monthlyTax = annualTax / 12;
+  const netMonthlySalary = monthlySalary - monthlyTax;
+
+  
+  document.getElementById('grossSalary').innerText = `Gross Monthly Salary: PKR ${monthlySalary}`;
+  document.getElementById('netSalary').innerText = `Net Monthly Salary: PKR ${netMonthlySalary.toFixed(0)}`;
+  document.getElementById('monthlyTax').innerText = `Monthly Tax: PKR ${monthlyTax.toFixed(0)}`;
+}
+
+/*
+//example 
+const result = calculateNetMonthlySalary(
+  200000
+); */
+
+  </script>
+</body>
+</html>
