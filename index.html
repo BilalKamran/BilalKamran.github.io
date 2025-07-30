@@ -58,9 +58,9 @@ function calculateNetMonthlySalary(monthlySalary) {
   if (taxableIncome <= 600000) {
     annualTax = 0;
   } else if (taxableIncome <= 1200000) {
-    annualTax = (taxableIncome - 600000) * 0.025;
+    annualTax = (taxableIncome - 600000) * 0.01;
   } else if (taxableIncome <= 2200000) {
-    annualTax = 60000 + (taxableIncome - 1200000) * 0.11;
+    annualTax = 6000 + (taxableIncome - 1200000) * 0.11;
   } else if (taxableIncome <= 3200000) {
     annualTax = 116000 + (taxableIncome - 2200000) * 0.23;
   } else if (taxableIncome <= 4100000) {
